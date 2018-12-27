@@ -1,0 +1,107 @@
+body {
+  overflow-x: hidden;
+  font-size: 20px;
+}
+
+nav {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/* Edge doesn't support all: unset */
+@supports not (all: unset) {
+  nav {
+    position: static;
+  }
+}
+
+section .text-container {
+  position: relative;
+  padding: 30vh 5vw 5vw 5vw;
+}
+section .text-container .card {
+  margin: 0;
+  max-width: 460px;
+}
+section .text-container .overview {
+  margin: 0 0 0 auto;
+}
+
+#obchody .text-container .overview,
+#historia .text-container .overview {
+  margin: 0 auto 0 0;
+}
+#obchody .text-container .expand-button,
+#historia .text-container .expand-button {
+  bottom: calc(5vw + 1.8em);
+  left: calc(5vw + 3em);
+  right: unset;
+}
+
+section .text-container .expand-button {
+  bottom: calc(5vw + 1.8em);
+  right: calc(5vw + 3em);
+}
+
+footer {
+  flex-direction: row;
+  justify-content: space-around;
+}
+footer .author a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 160ms ease-in-out;
+}
+footer .author a:focus::before,
+footer .author a:hover::before {
+  transform: none;
+}
+
+/* SECTION parallax images */
+section {
+  /* perspective: 300px; */
+  transform-style: preserve-3d;
+}
+.hero-image {
+}
+.hero-image > div, .hero-image > div::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-position: center;
+  background-size: cover;
+  z-index: 3;
+}
+
+.hero-image .l1 {
+  transform: translateZ(0px);
+}
+.hero-image .l2 {
+  /* transform: translateZ(-150px) scale(1.5); */
+}
+.hero-image .l3 {
+  /* transform: translateZ(-1px) scale(2); */
+}
+
+#home .hero-image .l3::after {
+  background-image: url(../images/layered/img0-layer3.png);
+}
+#home .hero-image .l2::after {
+  background-image: url(../images/layered/img0-layer2.png);
+}
+#home .hero-image .l1::after {
+  background-image: url(../images/layered/img0-layer1.png);
+}
+/* SECTION-END */

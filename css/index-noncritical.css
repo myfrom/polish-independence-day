@@ -1,0 +1,133 @@
+.small {
+  font-size: 0.8em;
+}
+
+section .text-container .expand-button {
+  cursor: pointer;
+}
+section .text-container .expand-button::before {
+  content: 'X';
+  color: black;
+  font-family: 'Parisienne', Georgia, 'Times', 'Times New Roman', Times, serif;
+  font-weight: 600;
+  position: fixed;
+  top: 40px;
+  right: 30px;
+  z-index: 5;
+  display: none;
+  font-size: 20px;
+  text-shadow: 0 1px 8px white;
+}
+section .text-container .text-toggle:checked ~ .expand-button {
+  transform: none !important;
+}
+section .text-container .text-toggle:checked ~ .expand-button::before {
+  display: block;
+}
+
+section .text-container .expandable {
+  overflow: hidden;
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overscroll-behavior: none;
+}
+section .text-container .expandable .card {
+  z-index: 4;
+  max-width: 700px;
+  max-height: 700px;
+  transition: transform 300ms ease-in, opacity 0s 300ms;
+  transform: translateY(100vh) rotate(-40deg);
+  opacity: 0;
+  transform-origin: 150% 50%;
+  overflow-y: auto;
+  overscroll-behavior: none;
+}
+section .text-container .expandable::before {
+  transition: opacity 200ms ease-in;
+  opacity: 0;
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: opacity 200ms ease-in;
+  opacity: 0;
+}
+section .text-container .text-toggle:checked ~ .expandable {
+  pointer-events: all;
+}
+section .text-container .text-toggle:checked ~ .expandable::before {
+  opacity: 1;
+  -webkit-backdrop-filter: blur(2px);
+}
+section .text-container .text-toggle:checked ~ .expandable .card {
+  transition: transform 300ms ease-out;
+  transform: none;
+  opacity: 1;
+  overscroll-behavior: none;
+  max-height: 90vh;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #0f0f0f;
+  width: 100%;
+  padding: 2em;
+  font-size: 0.8em;
+}
+footer h2, footer h3 {
+  font-family: 'Oswald', -apple-system, 'Segoe UI', Helvetica, sans-serif;
+  font-weight: 400;
+  margin: 0.2em;
+}
+footer h2 {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+footer h3 {
+  font-size: 1em;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  padding-top: 0.4em;
+  margin-top: 0.4em;
+  color: rgba(255, 255, 255, 0.48);
+}
+footer .author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+footer .author img {
+  height: 50px;
+}
+footer .author a {
+  text-decoration: none;
+  margin: 4px;
+  padding: 4px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+footer .author svg {
+  fill: white;
+  stroke: #0f0f0f;
+  width: 24px;
+  height: 24px;
+  z-index: 2;
+}
