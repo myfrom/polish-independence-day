@@ -1,5 +1,4 @@
 body {
-  overflow-x: hidden;
   font-size: 20px;
 }
 
@@ -15,6 +14,10 @@ nav {
   nav {
     position: static;
   }
+}
+
+nav a {
+  line-height: 1.2;
 }
 
 section .text-container {
@@ -48,6 +51,8 @@ section .text-container .expand-button {
 footer {
   flex-direction: row;
   justify-content: space-around;
+  z-index: 5;
+  position: relative;
 }
 footer .author a::before {
   content: '';
@@ -67,41 +72,92 @@ footer .author a:hover::before {
 }
 
 /* SECTION parallax images */
-section {
-  /* perspective: 300px; */
+body.upgraded-parallax {
+  perspective: 1px;
+}
+
+body.upgraded-parallax section {
   transform-style: preserve-3d;
 }
-.hero-image {
+body.upgraded-parallax .hero-image {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  pointer-events: none;
 }
-.hero-image > div, .hero-image > div::after {
+body.upgraded-parallax section.active .hero-image {
+  opacity: 1;
+}
+body.upgraded-parallax .hero-image::after {
   content: '';
   position: absolute;
   top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   background-position: center;
   background-size: cover;
+}
+
+body.upgraded-parallax .hero-image.l1 {
+  transform: translateZ(-1px) scale(2);
   z-index: 3;
 }
-
-.hero-image .l1 {
-  transform: translateZ(0px);
+body.upgraded-parallax .hero-image.l2 {
+  transform: translateZ(-2px) scale(3);
+  z-index: 2;
 }
-.hero-image .l2 {
-  /* transform: translateZ(-150px) scale(1.5); */
-}
-.hero-image .l3 {
-  /* transform: translateZ(-1px) scale(2); */
+body.upgraded-parallax .hero-image.l3 {
+  transform: translateZ(-3px) scale(4);
+  z-index: 1;
 }
 
-#home .hero-image .l3::after {
+body.upgraded-parallax #home .hero-image.l3::after {
   background-image: url(../images/layered/img0-layer3.png);
 }
-#home .hero-image .l2::after {
+body.upgraded-parallax #home .hero-image.l2::after {
   background-image: url(../images/layered/img0-layer2.png);
 }
-#home .hero-image .l1::after {
+body.upgraded-parallax #home .hero-image.l1::after {
+  background-image: url(../images/layered/img0-layer1.png);
+}
+
+body.upgraded-parallax #obchody .hero-image.l3::after {
+  background-image: url(../images/layered/img0-layer3.png);
+}
+body.upgraded-parallax #obchody .hero-image.l2::after {
+  background-image: url(../images/layered/img0-layer2.png);
+}
+body.upgraded-parallax #obchody .hero-image.l1::after {
+  background-image: url(../images/layered/img0-layer1.png);
+}
+
+body.upgraded-parallax #polonia .hero-image.l3::after {
+  background-image: url(../images/layered/img0-layer3.png);
+}
+body.upgraded-parallax #polonia .hero-image.l2::after {
+  background-image: url(../images/layered/img0-layer2.png);
+}
+body.upgraded-parallax #polonia .hero-image.l1::after {
+  background-image: url(../images/layered/img0-layer1.png);
+}
+
+body.upgraded-parallax #historia .hero-image.l3::after {
+  background-image: url(../images/layered/img0-layer3.png);
+}
+body.upgraded-parallax #historia .hero-image.l2::after {
+  background-image: url(../images/layered/img0-layer2.png);
+}
+body.upgraded-parallax #historia .hero-image.l1::after {
+  background-image: url(../images/layered/img0-layer1.png);
+}
+
+body.upgraded-parallax #inne-kraje .hero-image.l3::after {
+  background-image: url(../images/layered/img0-layer3.png);
+}
+body.upgraded-parallax #inne-kraje .hero-image.l2::after {
+  background-image: url(../images/layered/img0-layer2.png);
+}
+body.upgraded-parallax #inne-kraje .hero-image.l1::after {
   background-image: url(../images/layered/img0-layer1.png);
 }
 /* SECTION-END */

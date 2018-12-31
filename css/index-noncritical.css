@@ -2,6 +2,40 @@
   font-size: 0.8em;
 }
 
+header.waterfall::before {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 4px 16px 2px rgba(0,0,0,0.14);
+  transition: opacity 160ms ease-in-out;
+  opacity: 0;
+}
+header.waterfall.shadow::before {
+  opacity: 1;
+}
+
+nav a.upgraded {
+  position: relative;
+}
+nav a.upgraded::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: -0.1em;
+  left: 0;
+  right: 0;
+  border-bottom: 4px solid red;
+  transform: scaleX(0);
+  transition: transform 160ms ease-in-out;
+}
+nav a.upgraded.active::before {
+  transform: none;
+}
+
 section .text-container .expand-button {
   cursor: pointer;
 }
@@ -13,7 +47,7 @@ section .text-container .expand-button::before {
   position: fixed;
   top: 40px;
   right: 30px;
-  z-index: 5;
+  z-index: 7;
   display: none;
   font-size: 20px;
   text-shadow: 0 1px 8px white;
@@ -25,7 +59,7 @@ section .text-container .text-toggle:checked ~ .expand-button::before {
   display: block;
 }
 
-section .text-container .expandable {
+.expandable {
   overflow: hidden;
   display: flex;
   position: fixed;
@@ -33,14 +67,14 @@ section .text-container .expandable {
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: 3;
+  z-index: 6;
   align-items: center;
   justify-content: center;
   pointer-events: none;
   overscroll-behavior: none;
 }
-section .text-container .expandable .card {
-  z-index: 4;
+.expandable .card {
+  z-index: 7;
   max-width: 700px;
   max-height: 700px;
   transition: transform 300ms ease-in, opacity 0s 300ms;
@@ -50,11 +84,11 @@ section .text-container .expandable .card {
   overflow-y: auto;
   overscroll-behavior: none;
 }
-section .text-container .expandable::before {
+.expandable::before {
   transition: opacity 200ms ease-in;
   opacity: 0;
   content: '';
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
@@ -63,14 +97,17 @@ section .text-container .expandable::before {
   transition: opacity 200ms ease-in;
   opacity: 0;
 }
-section .text-container .text-toggle:checked ~ .expandable {
+section .text-container .text-toggle:checked ~ .expandable,
+.expandable.upgraded.open {
   pointer-events: all;
 }
-section .text-container .text-toggle:checked ~ .expandable::before {
+section .text-container .text-toggle:checked ~ .expandable::before,
+.expandable.upgraded.open::before {
   opacity: 1;
   -webkit-backdrop-filter: blur(2px);
 }
-section .text-container .text-toggle:checked ~ .expandable .card {
+section .text-container .text-toggle:checked ~ .expandable .card,
+.expandable.upgraded.open .card {
   transition: transform 300ms ease-out;
   transform: none;
   opacity: 1;
@@ -130,4 +167,15 @@ footer .author svg {
   width: 24px;
   height: 24px;
   z-index: 2;
+}
+
+body:not(.upgraded-parallax) .hero-image.l1 {
+  transform: none;
+  background-image: url(../images/layered/img0-layer1.png);
+  background-position: center;
+  background-size: cover;
+}
+body:not(.upgraded-parallax) .hero-image.l2,
+body:not(.upgraded-parallax) .hero-image.l3 {
+  display: none;
 }

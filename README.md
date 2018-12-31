@@ -9,7 +9,7 @@
 This website is made as part of a school project to promote information and awareness about this national holiday.
 
 More personal goals of this projects are to explore very lightweight and fast landing page structure without sacrificing on creative and unique effects, such as in this case **parallax scrolling images**.
-Also, it was important to allow mobile users experience those animations while keeping in mind that phones are far less powerful and can't use too much battery power.
+Also, it was important to allow mobile users experience the page while keeping in mind that phones are far less powerful and can't use too much battery power.
 
 ## Design
 

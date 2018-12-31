@@ -1,0 +1,37 @@
+{
+  "name": "100-polish-independence-day",
+  "version": "1.0.0",
+  "description": "[PL] Dowiedz się więcej na o setnej rocznicy niepodległości",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/gulp default",
+    "start": "./node_modules/.bin/http-server --silent",
+    "test": "echo \"No test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myfrom/100-polish-independence-day.git"
+  },
+  "author": "Wiktor Olejniczak <myfrom.13th@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/myfrom/100-polish-independence-day/issues"
+  },
+  "private": true,
+  "homepage": "https://myfrom.github.io/100-polish-independence-day",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-preset-minify": "^0.5.0",
+    "browserslist": "^4.3.6",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-responsive": "^2.11.0",
+    "http-server": "^0.11.1"
+  }
+}

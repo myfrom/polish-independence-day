@@ -23,9 +23,6 @@
     "src": "images/icons/432.png",
     "sizes": "432x432",
     "type": "image/png"
-  }, {
-    "src": "images/icons/svg.svg",
-    "type": "image/svg"
   }],
   "scope": "/100-polish-independence-day/"
 }

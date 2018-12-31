@@ -32,8 +32,14 @@
       font-weight: 300;
       scroll-behavior: smooth;
     }
+    html {
+      overflow: hidden;
+      height: 100vh;
+    }
     body {
-      padding-top: 32px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 100%;
     }
 
     header {
@@ -43,14 +49,17 @@
       justify-content: space-between;
       align-items: center;
       position: sticky;
+      position: -webkit-sticky;
       top: -1px;
       background-color: #fefefe;
       padding: 0 24px 0 24px;
-      z-index: 2;
+      z-index: 5;
+      margin-top: 32px;
     }
     header > a {
       text-decoration: none;
       color: inherit;
+      width: 330px;
     }
 
     h1, h2, h3 {
@@ -82,7 +91,6 @@
       width: 44px;
       height: 44px;
       padding: 4px;
-      z-index: 3;
     }
     label[for="nav-toggle"] > svg {
       stroke: black;
@@ -128,8 +136,10 @@
     section .text-container {
       position: relative;
       padding-top: 50vh;
+      z-index: 4;
     }
-    section .text-container .card {
+    section .text-container .card,
+    .expandable .card {
       background-color: white;
       margin: 16px;
       padding: 1.8em;
@@ -149,7 +159,7 @@
       transform: rotate(-1deg);
     }
 
-    section .text-container .expandable {
+    .expandable {
       display: none;
     }
 
@@ -166,7 +176,7 @@
     }
 
     .hero-image {
-      background-color: #fefefe;
+      /* background-color: #fefefe; */
     }
 
     @media (min-width: 900px) {
@@ -227,11 +237,9 @@
   <section id="home">
     <img src="images/placeholders/generic.png" alt="" class="hero-placeholder">
     <noscript class="image-lazyload">
-      <div class="hero-image">
-        <div class="l3"></div>
-        <div class="l2"></div>
-        <div class="l1"></div>
-      </div>
+      <div class="hero-image l3"></div>
+      <div class="hero-image l2"></div>
+      <div class="hero-image l1"></div>
     </noscript>
     <div class="text-container">
       <div class="overview card">
@@ -240,7 +248,9 @@
           <br>
           <span>Święto Niepodległości</span>
         </h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam bibendum bibendum. Nunc non magna consequat, dignissim ante a, bibendum dolor. Sed blandit orci quis pharetra auctor. Nullam ante magna, aliquet vel massa in, porta rhoncus felis. Etiam viverra magna eu magna bibendum, nec auctor est fermentum.</p>
+        <p>
+          Po 123 latach zaborów, 11 listopada 1918 roku Polska odzyskała niepodległość. Tego dnia, kapitulacja Niemiec zakończyła I Wojnę Światową a Rada Regencyjna - organ władzy w odradzającej się Polsce - przekazał władzę nad wojskiem marszałkowi Piłsudskiemu. W 2018 roku świętowaliśmy setną rocznicę tego wydarzenia. Z tej okazji, zorganizowano wiele wydarzeń upamiętniających to co stało się sto lat temu a także wzywających do zadbania by następne 100 lat było dla Polski jeszcze lepsze.
+        </p>
       </div>
       <input type="checkbox" id="home-more" class="text-toggle">
       <label for="home-more" class="expand-button">Więcej &rarr;</label>
@@ -251,7 +261,11 @@
           <br>
           <span>Święto Niepodległości</span>
           </h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam bibendum bibendum. Nunc non magna consequat, dignissim ante a, bibendum dolor. Sed blandit orci quis pharetra auctor. Nullam ante magna, aliquet vel massa in, porta rhoncus felis. Etiam viverra magna eu magna bibendum, nec auctor est fermentum.</p>
+          <p>
+            Po 123 latach zaborów, 11 listopada 1918 roku Polska odzyskała niepodległość. Tego dnia, kapitulacja Niemiec zakończyła I Wojnę Światową a Rada Regencyjna - organ władzy w odradzającej się Polsce - przekazał władzę nad wojskiem marszałkowi Piłsudskiemu. W 2018 roku świętowaliśmy setną rocznicę tego wydarzenia. Z tej okazji, zorganizowano wiele wydarzeń upamiętniających to co stało się sto lat temu a także wzywających do zadbania by następne 100 lat było dla Polski jeszcze lepsze.
+            <br><br>
+            Przed 11 listopada, wiele osób, włącznie z prezydentem Andrzejem Dudą, wzywało do porzucenia dzielących nas różnic i wspólnego świętowania tej wspaniałej rocznicy. I niezależnie co uważamy o rządzie i jego działaniach, powinniśmy przestać biernie narzekać i kłócić się, a zacząć działać aby nasza ojczyzna stawała się coraz lepsza.
+          </p>
         </div>
       </div>
     </div>
@@ -260,11 +274,9 @@
   <section id="obchody">
     <img src="images/placeholders/generic.png" alt="" class="hero-placeholder">
     <noscript class="image-lazyload">
-      <div class="hero-image">
-        <div class="l3"></div>
-        <div class="l2"></div>
-        <div class="l1"></div>
-      </div>
+      <div class="hero-image l3"></div>
+      <div class="hero-image l2"></div>
+      <div class="hero-image l1"></div>
     </noscript>
     <div class="text-container">
       <div class="overview card">
@@ -286,9 +298,9 @@
     <img src="images/placeholders/generic.png" alt="" class="hero-placeholder">
     <noscript class="image-lazyload">
       <div class="hero-image">
-        <div class="l3"></div>
-        <div class="l2"></div>
         <div class="l1"></div>
+        <div class="l2"></div>
+        <div class="l3"></div>
       </div>
     </noscript>
     <div class="text-container">
@@ -310,23 +322,31 @@
   <section id="historia">
     <img src="images/placeholders/generic.png" alt="" class="hero-placeholder">
     <noscript class="image-lazyload">
-      <div class="hero-image">
-        <div class="l3"></div>
-        <div class="l2"></div>
-        <div class="l1"></div>
-      </div>
+      <div class="hero-image l3"></div>
+      <div class="hero-image l2"></div>
+      <div class="hero-image l1"></div>
     </noscript>
     <div class="text-container">
       <div class="overview card">
         <h2>Historia</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam bibendum bibendum. Nunc non magna consequat, dignissim ante a, bibendum dolor. Sed blandit orci quis pharetra auctor. Nullam ante magna, aliquet vel massa in, porta rhoncus felis. Etiam viverra magna eu magna bibendum, nec auctor est fermentum.</p>
+        <p>
+          W 1795 roku Austro-Węgry, Prusy i Rosja dokończyly dzielić się Polskimi ziemiami i nasz kraj oficjalnie zniknął z mapy Europy. Po wielu nieudanych powstaniach, szansę na odzyskanie własnego kraju Polacy widzieli w I Wojnie Światowej, w której zaborcy stanęli po przeciwnych stronach - Rosja dołączyła do sił Ententy a Prusy i Austria były państwami centralnymi.
+        </p>
       </div>
       <input type="checkbox" id="historia-more" class="text-toggle">
       <label for="historia-more" class="expand-button">Więcej &rarr;</label>
       <div class="expandable">
         <div class="card">
           <h2>Historia</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam bibendum bibendum. Nunc non magna consequat, dignissim ante a, bibendum dolor. Sed blandit orci quis pharetra auctor. Nullam ante magna, aliquet vel massa in, porta rhoncus felis. Etiam viverra magna eu magna bibendum, nec auctor est fermentum.</p>
+          <p>
+            W 1795 roku Austro-Węgry, Prusy i Rosja dokończyly dzielić się Polskimi ziemiami i nasz kraj oficjalnie zniknął z mapy Europy. Po wielu nieudanych powstaniach, szansę na odzyskanie własnego kraju Polacy widzieli w I Wojnie Światowej, w której zaborcy stanęli po przeciwnych stronach - Rosja dołączyła do sił Ententy a Prusy i Austria były państwami centralnymi.
+            <br><br>
+            Nie można pominąć wkładu Józefa Piłsudzkiego. To on zapoczątkował Polskie Legiony przy armii austro-węgierskiej. Podczas wojny i państwa ententy, i państwa centralne obiecywały Polakom założenie wolnego państwa aby zyskać poparcie oddziałów walczących o ojczyznę. Roman Dmowski - działacz polski na emigracji zainicjował powstanie Komitetu Narodowego Polskiego, który walczył o ojczyznę na arenie politycznej. Pod koniec wojny, gdy siły zaborców zaczęły słabnąć, powstawało coraz więcej lokalnych organów władzy na terenie naszego kraju, między innymi: Rada Narodowa Śląska Cieszyńskiego, Centralny Komitet Obywatelski, Polska Komisja Likwidacyjna czy Rada Regencyjna. Kiedy 11 listopada Niemcy podpisały kapitulację, co oficjalnie uznano za zakończenie I Wojny Światowej, Rada Regencyjna przekazało władzę nad wojskiem polskim Józefowi Piłsudzkiemu. Wydarzenie to uznano za odzyskanie przez naszą ojczyznę niepodległości.
+            <br><br>
+            <i>
+              "Niepodobna oddać tego upojenia, tego szału radości, jaki ludność polską w tym momencie ogarnął. Po 120 latach prysły kordony. Nie ma „ich”. Wolność! Niepodległość! Zjednoczenie! Własne państwo! Na zawsze! Chaos? To nic. Będzie dobrze. Wszystko będzie, bo jesteśmy wolni od pijawek, złodziei, rabusiów, od czapki z bączkiem, będziemy sami sobą rządzili. Cztery pokolenia nadaremno na tę chwilę czekały, piąte doczekało."
+            </i>
+          </p>
         </div>
       </div>
     </div>
@@ -335,11 +355,9 @@
   <section id="inne-kraje">
     <img src="images/placeholders/generic.png" alt="" class="hero-placeholder">
     <noscript class="image-lazyload">
-      <div class="hero-image">
-        <div class="l3"></div>
-        <div class="l2"></div>
-        <div class="l1"></div>
-      </div>
+      <div class="hero-image l3"></div>
+      <div class="hero-image l2"></div>
+      <div class="hero-image l1"></div>
     </noscript>
     <div class="text-container">
       <div class="overview card">
