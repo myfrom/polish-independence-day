@@ -147,7 +147,7 @@ function html() {
           images/layered/img${p2}-full-720px.png 0.5x">
     `))
     .pipe(replace(/<img (.+|\s)?src="images\/([^-]+)-sign\.png"([^>]+|\s)?>/g, (_, p1, p2, p3) => `
-      <img ${p1 ? p1 : ''} src="images/${p2}-sign.png ${p3 ? p3 : ''}
+      <img ${p1 ? p1 : ''} src="images/${p2}-sign.png" ${p3 ? p3 : ''}
         srcset="
           images/${p2}-sign.png 2x
           images/${p2}-sign-200px.png 1x
