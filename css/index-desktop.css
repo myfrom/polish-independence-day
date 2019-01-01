@@ -51,7 +51,7 @@ section .text-container .expand-button {
 footer {
   flex-direction: row;
   justify-content: space-around;
-  z-index: 5;
+  z-index: 6;
   position: relative;
 }
 footer .author a::before {
@@ -122,42 +122,42 @@ body.upgraded-parallax #home .hero-image.l1::after {
 }
 
 body.upgraded-parallax #obchody .hero-image.l3::after {
-  background-image: url(../images/layered/img0-layer3.png);
+  background-image: url(../images/layered/img1-layer3.png);
 }
 body.upgraded-parallax #obchody .hero-image.l2::after {
-  background-image: url(../images/layered/img0-layer2.png);
+  background-image: url(../images/layered/img1-layer2.png);
 }
 body.upgraded-parallax #obchody .hero-image.l1::after {
-  background-image: url(../images/layered/img0-layer1.png);
+  background-image: url(../images/layered/img1-layer1.png);
 }
 
 body.upgraded-parallax #polonia .hero-image.l3::after {
-  background-image: url(../images/layered/img0-layer3.png);
+  background-image: url(../images/layered/img2-layer3.png);
 }
 body.upgraded-parallax #polonia .hero-image.l2::after {
-  background-image: url(../images/layered/img0-layer2.png);
+  background-image: url(../images/layered/img2-layer2.png);
 }
 body.upgraded-parallax #polonia .hero-image.l1::after {
-  background-image: url(../images/layered/img0-layer1.png);
+  background-image: url(../images/layered/img2-layer1.png);
 }
 
 body.upgraded-parallax #historia .hero-image.l3::after {
-  background-image: url(../images/layered/img0-layer3.png);
+  background-image: url(../images/layered/img3-layer3.png);
 }
 body.upgraded-parallax #historia .hero-image.l2::after {
-  background-image: url(../images/layered/img0-layer2.png);
+  background-image: url(../images/layered/img3-layer2.png);
 }
 body.upgraded-parallax #historia .hero-image.l1::after {
-  background-image: url(../images/layered/img0-layer1.png);
+  background-image: url(../images/layered/img3-layer1.png);
 }
 
 body.upgraded-parallax #inne-kraje .hero-image.l3::after {
-  background-image: url(../images/layered/img0-layer3.png);
+  background-image: url(../images/layered/img4-layer3.png);
 }
 body.upgraded-parallax #inne-kraje .hero-image.l2::after {
-  background-image: url(../images/layered/img0-layer2.png);
+  background-image: url(../images/layered/img4-layer2.png);
 }
 body.upgraded-parallax #inne-kraje .hero-image.l1::after {
-  background-image: url(../images/layered/img0-layer1.png);
+  background-image: url(../images/layered/img4-layer1.png);
 }
 /* SECTION-END */

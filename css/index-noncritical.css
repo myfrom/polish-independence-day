@@ -47,7 +47,7 @@ section .text-container .expand-button::before {
   position: fixed;
   top: 40px;
   right: 30px;
-  z-index: 7;
+  z-index: 8;
   display: none;
   font-size: 20px;
   text-shadow: 0 1px 8px white;
@@ -67,14 +67,14 @@ section .text-container .text-toggle:checked ~ .expand-button::before {
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: 6;
+  z-index: 7;
   align-items: center;
   justify-content: center;
   pointer-events: none;
   overscroll-behavior: none;
 }
 .expandable .card {
-  z-index: 7;
+  z-index: 8;
   max-width: 700px;
   max-height: 700px;
   transition: transform 300ms ease-in, opacity 0s 300ms;
@@ -166,16 +166,36 @@ footer .author svg {
   stroke: #0f0f0f;
   width: 24px;
   height: 24px;
-  z-index: 2;
+  z-index: 3;
+  position: relative;
 }
 
 body:not(.upgraded-parallax) .hero-image.l1 {
   transform: none;
-  background-image: url(../images/layered/img0-layer1.png);
   background-position: center;
   background-size: cover;
 }
 body:not(.upgraded-parallax) .hero-image.l2,
 body:not(.upgraded-parallax) .hero-image.l3 {
+  display: none;
+}
+
+body:not(.upgraded-parallax) #home .hero-image.l1 {
+  background-image: url(../images/layered/img0-full.png);
+}
+body:not(.upgraded-parallax) #obchody .hero-image.l1 {
+  background-image: url(../images/layered/img1-full.png);
+}
+body:not(.upgraded-parallax) #polonia .hero-image.l1 {
+  background-image: url(../images/layered/img2-full.png);
+}
+body:not(.upgraded-parallax) #historia .hero-image.l1 {
+  background-image: url(../images/layered/img3-full.png);
+}
+body:not(.upgraded-parallax) #inne-kraje .hero-image.l1 {
+  background-image: url(../images/layered/img4-full.png);
+}
+
+.phone-parallax-btn {
   display: none;
 }

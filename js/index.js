@@ -2,7 +2,8 @@ const DESKTOP_MQ = '(min-width: 900px)',
       PARALLAX_SUPPORTED = CSS.supports('transform-style: preserve-3d') && ('IntersectionObserver' in window);
 
 window.AppState = {
-  parallaxEnabled: false
+  parallaxEnabled: false,
+  phoneParallaxOverlayOpen: false
 };
 
 function doubleRAF(fun) {
@@ -78,6 +79,8 @@ function waitForTransition(element, listenToChild) {
     if (PARALLAX_SUPPORTED && window.matchMedia(DESKTOP_MQ).matches) {
       document.body.classList.add('upgraded-parallax');
       window.AppState.parallaxEnabled = true;
+      if (window.AppState.phoneParallaxOverlayOpen)
+        document.querySelector('#phone-parallax-overlay').remove();
     } else {
       document.body.classList.remove('upgraded-parallax');
       window.AppState.parallaxEnabled = false;
@@ -124,3 +127,29 @@ function waitForTransition(element, listenToChild) {
   }, { passive: true });
   header.classList.add('waterfall');
 })();
+
+// // Add phone parallax effect if supported
+// (() => {
+//   if (!(PARALLAX_SUPPORTED && 'DeviceOrientationEvent' in window))
+//     return;
+//   function loadPhoneParallax() {
+//     const script = document.createElement('script');
+//     script.setAttribute('src', 'js/phone-parallax.js');
+//     script.setAttribute('defer', true);
+//     document.head.appendChild(script);
+//     const style = document.createElement('link');
+//     style.setAttribute('rel', 'stylesheet');
+//     style.setAttribute('href', 'css/phone-parallax.css');
+//     style.setAttribute('media', '(max-width: 900px)');
+//     document.head.appendChild(style);
+//   }
+//   if (!window.matchMedia(DESKTOP_MQ).matches)
+//     loadPhoneParallax();
+//   else
+//     window.addEventListener('resize', function handleResize() {
+//       if (window.matchMedia(DESKTOP_MQ).matches) {
+//         loadPhoneParallax();
+//         window.removeEventListener('resize', handleResize);
+//       }
+//     });
+// })();

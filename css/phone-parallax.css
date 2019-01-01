@@ -1,0 +1,169 @@
+.hero-image.l1 .phone-parallax-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  position: absolute;
+  top: 5vh;
+  right: 2vw;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: red;
+  z-index: 5;
+  outline: none;
+  padding: 1em;
+}
+@supports (animation-name: test) {
+
+  @keyframes open-hint {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  .hero-image.l1 .phone-parallax-btn {
+    animation: open-hint 200ms ease-out;
+  }
+
+  @keyframes pop {
+    0% {
+      opacity: 0.2;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(2);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+  .hero-image.l1 .phone-parallax-btn::before {
+    content: '';
+    height: 0.5em;
+    width: 0.5em;
+    margin-right: 0.8em;
+    border-radius: 50%;
+    background-color: red;
+    animation: pop 1s ease-in-out infinite;
+  }
+
+}
+
+#phone-parallax-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #fefefe;
+  transform: none;
+  transition: transform 200ms ease-out;
+}
+#phone-parallax-overlay.closed {
+  transition-timing-function: ease-in;
+  transform: translateY(100%);
+}
+
+#ppo-close-btn {
+  position: fixed;
+  top: 40px;
+  right: 30px;
+  z-index: 14;
+  color: black;
+  font-family: 'Parisienne', Georgia, 'Times', 'Times New Roman', Times, serif;
+  font-weight: 600;
+  font-size: 20px;
+  text-shadow: 0 1px 8px white;
+}
+
+#phone-parallax-overlay .parallax {
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  perspective: 1px;
+}
+#phone-parallax-overlay .parallax div {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-position: center;
+  background-size: cover;
+}
+
+#phone-parallax-overlay .parallax .l1 {
+  transform: translateZ(-1px) scale(2);
+  z-index: 13;
+}
+#phone-parallax-overlay .parallax .l2 {
+  transform: translateZ(-2px) scale(3);
+  z-index: 12;
+}
+#phone-parallax-overlay .parallax .l3 {
+  transform: translateZ(-3px) scale(4);
+  z-index: 11;
+}
+
+#phone-parallax-overlay.home .parallax .l1 {
+  background-image: url(../images/layered/img0-layer1.png);
+}
+#phone-parallax-overlay.home .parallax .l2 {
+  background-image: url(../images/layered/img0-layer2.png);
+}
+#phone-parallax-overlay.home .parallax .l3 {
+  background-image: url(../images/layered/img0-layer3.png);
+}
+
+#phone-parallax-overlay.obchody .parallax .l1 {
+  background-image: url(../images/layered/img1-layer1.png);
+}
+#phone-parallax-overlay.obchody .parallax .l2 {
+  background-image: url(../images/layered/img1-layer2.png);
+}
+#phone-parallax-overlay.obchody .parallax .l3 {
+  background-image: url(../images/layered/img1-layer3.png);
+}
+
+#phone-parallax-overlay.polonia .parallax .l1 {
+  background-image: url(../images/layered/img2-layer1.png);
+}
+#phone-parallax-overlay.polonia .parallax .l2 {
+  background-image: url(../images/layered/img2-layer2.png);
+}
+#phone-parallax-overlay.polonia .parallax .l3 {
+  background-image: url(../images/layered/img2-layer3.png);
+}
+
+#phone-parallax-overlay.historia .parallax .l1 {
+  background-image: url(../images/layered/img3-layer1.png);
+}
+#phone-parallax-overlay.historia .parallax .l2 {
+  background-image: url(../images/layered/img3-layer2.png);
+}
+#phone-parallax-overlay.historia .parallax .l3 {
+  background-image: url(../images/layered/img3-layer3.png);
+}
+
+#phone-parallax-overlay.inne-kraje .parallax .l1 {
+  background-image: url(../images/layered/img4-layer1.png);
+}
+#phone-parallax-overlay.inne-kraje .parallax .l2 {
+  background-image: url(../images/layered/img4-layer2.png);
+}
+#phone-parallax-overlay.inne-kraje .parallax .l3 {
+  background-image: url(../images/layered/img4-layer3.png);
+}
