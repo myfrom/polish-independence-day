@@ -1,5 +1,5 @@
 {
-  "name": "100-polish-independence-day",
+  "name": "polish-independence-day",
   "version": "1.0.0",
   "description": "[PL] Dowiedz się więcej na o setnej rocznicy niepodległości",
   "main": "index.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/myfrom/100-polish-independence-day.git"
+    "url": "git+https://github.com/myfrom/polish-independence-day.git"
   },
   "author": "Wiktor Olejniczak <myfrom.13th@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/myfrom/100-polish-independence-day/issues"
+    "url": "https://github.com/myfrom/polish-independence-day/issues"
   },
   "private": true,
-  "homepage": "https://myfrom.github.io/100-polish-independence-day",
+  "homepage": "https://myfrom.github.io/polish-independence-day",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",

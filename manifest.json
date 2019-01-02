@@ -6,7 +6,7 @@
   "display": "browser",
   "theme_color": "#FEFEFE",
   "background_color": "#FFFFFF",
-  "start_url": "/100-polish-independence-day/",
+  "start_url": "/polish-independence-day/",
   "icons": [{
     "src": "images/icons/48.png",
     "sizes": "48x48",
@@ -24,5 +24,5 @@
     "sizes": "432x432",
     "type": "image/png"
   }],
-  "scope": "/100-polish-independence-day/"
+  "scope": "/polish-independence-day/"
 }
