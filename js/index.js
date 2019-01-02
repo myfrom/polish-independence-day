@@ -79,8 +79,8 @@ function waitForTransition(element, listenToChild) {
     if (PARALLAX_SUPPORTED && window.matchMedia(DESKTOP_MQ).matches) {
       document.body.classList.add('upgraded-parallax');
       window.AppState.parallaxEnabled = true;
-      if (window.AppState.phoneParallaxOverlayOpen)
-        document.querySelector('#phone-parallax-overlay').remove();
+      // if (window.AppState.phoneParallaxOverlayOpen)
+      //   document.querySelector('#phone-parallax-overlay').remove();
     } else {
       document.body.classList.remove('upgraded-parallax');
       window.AppState.parallaxEnabled = false;
