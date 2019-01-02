@@ -1,5 +1,5 @@
 const DESKTOP_MQ = '(min-width: 900px)',
-      PARALLAX_SUPPORTED = CSS.supports('transform-style: preserve-3d') && ('IntersectionObserver' in window);
+      PARALLAX_SUPPORTED = CSS.supports('transform-style', 'preserve-3d') && ('IntersectionObserver' in window);
 
 window.AppState = {
   parallaxEnabled: false,
