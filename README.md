@@ -26,7 +26,7 @@ Drawings are made by my friend, Wiktoria - you can go check out her profile on [
 
 The school part of this project is finished now but I think there are a few things that still could be improved. I'll come back this project at the beginning of February, here's what I still want to do:
 
-- [ ] Add back navigation handling
+- [x] Add back navigation handling
 - [ ] (Probably) remake images
 - [ ] Add parallax viewer for phones too
 - [ ] Refractor code (maybe, I think it needs some cleaning)
