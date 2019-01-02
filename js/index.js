@@ -3,7 +3,12 @@ const DESKTOP_MQ = '(min-width: 900px)',
 
 window.AppState = {
   parallaxEnabled: false,
-  phoneParallaxOverlayOpen: false
+  /**
+   * Currently opened overlay element,
+   * clicking it should close the overlay
+   * @type {?Element}
+   */
+  openedOverlay: null,
 };
 
 function doubleRAF(fun) {
@@ -31,8 +36,6 @@ function waitForTransition(element, listenToChild) {
 
 // Fix 'more info' sections after parallax is added
 (() => {
-  history.replaceState({ section: null }, '', '');
-
   const textContainers = document.querySelectorAll('section .text-container');
   textContainers.forEach(container => {
     const expandable = container.querySelector('.expandable'),
@@ -40,10 +43,18 @@ function waitForTransition(element, listenToChild) {
     toggle.addEventListener('change', () => {
       const expanded = toggle.checked;
       if (expanded) {
-        const parentSectionName = expandable.closest('section').id;
-        expandable.setAttribute('data-section', parentSectionName);
+        const parentSectionId = expandable.closest('section').id;
+        // Add entry to history so we can close this on back navigation
+        window.AppState.openedOverlay = expandable;
+        history.pushState({}, document.title, `?section=${parentSectionId}`);
+        expandable.setAttribute('data-section', parentSectionId);
         expandable.addEventListener('click', function clickHandler(e) {
           if (e.target === expandable) {
+            // Remove the history entry and reset state
+            if (window.AppState.openedOverlay) {
+              window.AppState.openedOverlay = null;
+              history.back();
+            }
             toggle.click();
             expandable.removeEventListener('click', clickHandler, { passive: true });
             waitForTransition(expandable, true).then(() => {
@@ -153,3 +164,16 @@ function waitForTransition(element, listenToChild) {
 //       }
 //     });
 // })();
+
+// Handle back navigation
+(() => {
+  window.onpopstate = e => {
+    // Check state for open overlays and if there is one, close it
+    if (window.AppState.openedOverlay) {
+      const overlay = window.AppState.openedOverlay;
+      window.AppState.openedOverlay = null;
+      // App is structured so clicking this element should close the overlay
+      overlay.click();
+    }
+  }
+})();
