@@ -1,7 +1,7 @@
 {
   "name": "polish-independence-day",
   "version": "1.0.0",
-  "description": "[PL] Dowiedz się więcej na o setnej rocznicy niepodległości",
+  "description": "[PL] Dowiedz się więcej o setnej rocznicy niepodległości",
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/gulp default",
