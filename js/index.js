@@ -102,8 +102,6 @@ function waitForTransition(element, listenToChild) {
     if (PARALLAX_SUPPORTED && window.matchMedia(DESKTOP_MQ).matches) {
       document.body.classList.add('upgraded-parallax');
       window.AppState.parallaxEnabled = true;
-      // if (window.AppState.phoneParallaxOverlayOpen)
-      //   document.querySelector('#phone-parallax-overlay').remove();
     } else {
       document.body.classList.remove('upgraded-parallax');
       window.AppState.parallaxEnabled = false;
@@ -115,29 +113,34 @@ function waitForTransition(element, listenToChild) {
 })();
 
 // Mark sections as active
-(() => {
-  if (!('IntersectionObserver' in window)) return;
+IObserverReady.then(() => {
   function callback(entries) {
     entries.forEach(entry => {
       const sectionName = entry.target.id;
-      if (entry.intersectionRatio >= 0.7) {
+      if (entry.intersectionRatio >= 0.6) {
         entry.target.classList.add('active');
         document.querySelector(`a[href="#${sectionName}"]`).classList.add('active');
       } else {
         entry.target.classList.remove('active');
         document.querySelector(`a[href="#${sectionName}"]`).classList.remove('active');
       }
+      // Remove out-of-screen sections from display
+      if (entry.intersectionRatio == 0 || entry.intersectionRatio) {
+        const heroImages = document.querySelectorAll(`#${sectionName} .hero-image`);
+        heroImages.forEach(image => image.classList.toggle('hide-on-desktop', !entry.intersectionRatio));
+      }
     });
   }
   const IObserver = new IntersectionObserver(callback, {
     root: document.body,
-    threshold: [0, 0.25, 0.75, 1]
+    threshold: [0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+    rootMargin: '96px 0px 0px 0px'
   });
   const sectionsList = document.querySelectorAll('section');
   sectionsList.forEach(section => IObserver.observe(section));
   const navLinksList = document.querySelectorAll('nav a');
   navLinksList.forEach(el => el.classList.add('upgraded'));
-})();
+});
 
 // Passively listen for scroll to add waterfall effect
 (() => {
@@ -149,33 +152,24 @@ function waitForTransition(element, listenToChild) {
       header.classList.remove('shadow');
   }, { passive: true });
   header.classList.add('waterfall');
-})();
+});
 
-// // Add phone parallax effect if supported
-// (() => {
-//   if (!(PARALLAX_SUPPORTED && 'DeviceOrientationEvent' in window))
-//     return;
-//   function loadPhoneParallax() {
-//     const script = document.createElement('script');
-//     script.setAttribute('src', 'js/phone-parallax.js');
-//     script.setAttribute('defer', true);
-//     document.head.appendChild(script);
-//     const style = document.createElement('link');
-//     style.setAttribute('rel', 'stylesheet');
-//     style.setAttribute('href', 'css/phone-parallax.css');
-//     style.setAttribute('media', '(max-width: 900px)');
-//     document.head.appendChild(style);
-//   }
-//   if (!window.matchMedia(DESKTOP_MQ).matches)
-//     loadPhoneParallax();
-//   else
-//     window.addEventListener('resize', function handleResize() {
-//       if (window.matchMedia(DESKTOP_MQ).matches) {
-//         loadPhoneParallax();
-//         window.removeEventListener('resize', handleResize);
-//       }
-//     });
-// })();
+// Close navigation drawer on click outside (mobile)
+(() => {
+  const toggle = document.querySelector('#nav-toggle');
+  toggle.addEventListener('change', () => {
+    const handler = e => {
+      if (!e.target.closest('nav') && !e.target.closest('label[for="nav-toggle"]')) {
+        toggle.checked = false;
+        window.removeEventListener('click', handler, { passive: true })
+      }
+    };
+    if (toggle.checked)
+      window.addEventListener('click', handler, { passive: true });
+    else
+      window.removeEventListener('click', handler, { passive: true });
+  });
+})();
 
 // Handle back navigation
 (() => {
@@ -188,4 +182,26 @@ function waitForTransition(element, listenToChild) {
       overlay.click();
     }
   }
+})();
+
+// // Add phone parallax effect if supported
+(() => {
+  if (!(PARALLAX_SUPPORTED && 'DeviceOrientationEvent' in window))
+    // Phone parallax not supported, abort
+    return;
+  function loadPhoneParallax() {
+    const script = document.createElement('script');
+    script.setAttribute('src', 'js/phone-parallax.js');
+    script.setAttribute('defer', true);
+    document.head.appendChild(script);
+  }
+  if (!window.matchMedia(DESKTOP_MQ).matches)
+    IObserverReady.then(() => loadPhoneParallax());
+  else
+    window.addEventListener('resize', function handleResize() {
+      if (!window.matchMedia(DESKTOP_MQ).matches) {
+        IObserverReady.then(() => loadPhoneParallax());
+        window.removeEventListener('resize', handleResize);
+      }
+    });
 })();
