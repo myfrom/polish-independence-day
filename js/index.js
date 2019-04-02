@@ -1,5 +1,17 @@
 const DESKTOP_MQ = '(min-width: 900px)',
-      PARALLAX_SUPPORTED = CSS.supports('transform-style', 'preserve-3d') && ('IntersectionObserver' in window);
+      PARALLAX_SUPPORTED = CSS.supports('transform-style', 'preserve-3d');
+
+// Ensure we have Intersection Observer, otherwise load a polyfill
+const IObserverReady = new Promise(r => {
+  if ('IntersectionObserver' in window)
+    r();
+  else {
+    const el = document.createElement('script');
+    el.src = 'https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver';
+    el.onload = r;
+    document.head.appendChild(el);
+  }
+});
 
 window.AppState = {
   parallaxEnabled: false,
