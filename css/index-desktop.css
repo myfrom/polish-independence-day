@@ -2,6 +2,10 @@ body {
   font-size: 20px;
 }
 
+.hide-on-desktop {
+  display: none;
+}
+
 nav {
   all: unset;
   display: flex;
@@ -50,7 +54,7 @@ section .text-container .expand-button {
 
 footer {
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   z-index: 6;
   position: relative;
 }

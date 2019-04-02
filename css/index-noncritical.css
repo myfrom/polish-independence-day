@@ -118,8 +118,8 @@ section .text-container .text-toggle:checked ~ .expandable .card,
 footer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: space-evenly;
   color: white;
   background-color: #0f0f0f;
   width: 100%;
@@ -142,10 +142,24 @@ footer h3 {
   margin-top: 0.4em;
   color: rgba(255, 255, 255, 0.48);
 }
+footer a {
+  color: white;
+  font-size: 1.2em;
+  margin: 0.2em;
+  text-decoration-color: rgba(255, 255, 255, 0.48);
+}
+footer a:hover, footer a:focus {
+  text-decoration-color: white;
+}
+footer .column {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+}
 footer .author {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   margin-bottom: 2em;
 }
@@ -198,4 +212,26 @@ body:not(.upgraded-parallax) #inne-kraje .hero-image.l1 {
 
 .phone-parallax-btn {
   display: none;
+}
+
+.credits {
+  font-size: 0.9em;
+  margin-top: 4em;
+  opacity: 0.8;
+}
+.credits .small {
+  font-size: 1em;
+  opacity: 0.8; /* It's 0.8 * 0.8 */
+  margin-left: 1.2em;
+}
+.credits strong {
+  font-weight: 400;
+}
+.credits a {
+  color: inherit !important;
+}
+.credits ul {
+  padding-left: 1.2em;
+  list-style-type: circle;
+  list-style-type: '-';
 }
