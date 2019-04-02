@@ -4,7 +4,7 @@ const gulp = require('gulp'),
       cleanCss = require('gulp-clean-css'),
       htmlmin = require('gulp-htmlmin'),
       responsive = require('gulp-responsive'),
-      replace = require('gulp-replace'),
+      replace = require('@yodasws/gulp-pattern-replace'),
       del = require('del');
 
 const OUTPUT_PATH = './dist';
@@ -83,7 +83,7 @@ function optimiseImages() {
       }),
       imagemin.jpegtran(),
       imagemin.gifsicle()
-    ]))
+    ], { verbose: true }))
     .pipe(gulp.dest(OUTPUT_PATH));
 }
 optimiseImages.displayName = 'optimise-images';
@@ -134,25 +134,25 @@ js.description = 'Minifying and compiling JS for 2 latest versions of major brow
 
 function html() {
   return gulp.src('*.html', { base: './' })
-    .pipe(htmlmin({
-      collapseWhitespace: true,
-      removeComments: true
-    }))
     .pipe(replace(/<img (.+|\s)?src="images\/layered\/img(\d)-full\.png"([^>]+|\s)?>/g, (_, p1, p2, p3) => `
-      <img ${p1 ? p1 : ''} src="images/layered/img${p2}-full.png ${p3 ? p3 : ''}
+      <img ${p1 ? p1 : ''} src="images/layered/img${p2}-full.png" ${p3 ? p3 : ''}
         srcset="
-          images/layered/img${p2}-full.png 2x
-          images/layered/img${p2}-full-2560px.png 1.5x
-          images/layered/img${p2}-full-1920px.png 1x
+          images/layered/img${p2}-full.png 2x,
+          images/layered/img${p2}-full-2560px.png 1.5x,
+          images/layered/img${p2}-full-1920px.png 1x,
           images/layered/img${p2}-full-720px.png 0.5x">
     `))
     .pipe(replace(/<img (.+|\s)?src="images\/([^-]+)-sign\.png"([^>]+|\s)?>/g, (_, p1, p2, p3) => `
       <img ${p1 ? p1 : ''} src="images/${p2}-sign.png" ${p3 ? p3 : ''}
         srcset="
-          images/${p2}-sign.png 2x
-          images/${p2}-sign-200px.png 1x
+          images/${p2}-sign.png 2x,
+          images/${p2}-sign-200px.png 1x,
           images/${p2}-sign-100px.png 0.5x">
     `))
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      removeComments: true
+    }))
     .pipe(gulp.dest(OUTPUT_PATH));
 }
 html.displayName = 'html';
