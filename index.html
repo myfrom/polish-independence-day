@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="content-language" content="pl"><title>100 Lat Niepodległości</title><meta name="description" content="Dowiedz się więcej o setnej rocznicy niepodległości"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#FEFEFE"><link rel="manifest" href="manifest.json"><link rel="icon" href="favicon.ico" type="image/x-icon"><meta name="og:image" content=""><script src="js/index.js" defer="defer"></script><style>* {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #fefefe;
+      color: black;
+      font-size: 18px;
+      font-family: 'Oswald', -apple-system, 'Segoe UI', Helvetica, sans-serif;
+      font-weight: 300;
+      scroll-behavior: smooth;
+    }
+    html {
+      overflow: hidden;
+      height: 100vh;
+    }
+    body {
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 100%;
+    }
+
+    header {
+      width: 100%;
+      height: 96px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      position: -webkit-sticky;
+      top: -1px;
+      background-color: #fefefe;
+      padding: 0 24px 0 24px;
+      z-index: 6;
+      margin-top: 32px;
+    }
+    header > a {
+      text-decoration: none;
+      color: inherit;
+      width: 330px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Parisienne', Georgia, 'Times', 'Times New Roman', Times, serif;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: 2em;
+      line-height: 0.9;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin: 0 0 1em 0;
+      font-size: 1.7em;
+    }
+
+    .accent {
+      color: red;
+    }
+
+    #nav-toggle, .text-toggle {
+      display: none;
+    }
+
+    label[for="nav-toggle"] {
+      width: 44px;
+      height: 44px;
+      padding: 4px;
+    }
+    label[for="nav-toggle"] > svg {
+      stroke: black;
+      transform: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    nav {
+      position: absolute;
+      top: 96px;
+      right: 0;
+      left: 0;
+      display: none;
+    }
+    nav a {
+      display: inline-block;
+      text-decoration: none;
+      color: black;
+      font-weight: 400;
+      padding: 10px;
+      margin: 4px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    section {
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+
+    section .hero-image, section .hero-placeholder {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      object-fit: cover;
+      width: 100%;
+      height: 80vh;
+    }
+
+    section .text-container {
+      position: relative;
+      padding-top: 50vh;
+      z-index: 4;
+    }
+    section .text-container .card,
+    .expandable .card {
+      background-color: white;
+      margin: 16px;
+      padding: 1.8em;
+      box-shadow: 0 4px 16px 2px rgba(0,0,0,0.14);
+    }
+    section .text-container .overview {
+      transform: rotate(1deg);
+      padding-bottom: 3.8em;
+    }
+
+    #obchody .text-container .overview,
+    #historia .text-container .overview {
+      transform: rotate(-1deg);
+    }
+    #obchody .text-container .expand-button,
+    #historia .text-container .expand-button {
+      transform: rotate(-1deg);
+    }
+
+    .expandable {
+      display: none;
+    }
+
+    section .text-container .expand-button {
+      color: red;
+      position: absolute;
+      bottom: 1.8em;
+      right: 3em;
+    }
+
+    #home {
+      min-height: calc(100vh - 128px);
+      margin-bottom: 128px;
+    }
+
+    .hero-image {
+      /* background-color: #fefefe; */
+    }
+
+    @media (min-width: 900px) {
+
+      header {
+        padding: 0 44px 0 48px;
+      }
+      
+      label[for="nav-toggle"] {
+        display: none;
+      }
+
+      nav a {
+        max-width: 160px;
+        max-height: 96px;
+      }
+
+    }</style><noscript id="lazyload-css"><link href="css/index-noncritical.css" rel="stylesheet"><link href="css/index-mobile-noncritical.css" rel="stylesheet" media="(max-width: 900px)"><link href="https://fonts.googleapis.com/css?family=Oswald:300,400|Parisienne" rel="stylesheet"></noscript><link href="css/index-desktop.css" rel="stylesheet" media="(min-width: 900px)"><noscript><link rel="stylesheet" href="css/noscript.css"></noscript></head><body><header><a href="#home"><h1><span class="small">100-lecie</span> Odzyskania <span class="accent">Niepodległości</span></h1></a><input type="checkbox" id="nav-toggle"> <label aria-label="Otwórz nawigację" for="nav-toggle"><svg viewBox="0 0 24 24"><g stroke-linecap="square" stroke-miterlimit="3"><path d="M4.45 8.05c5.19-.74 11.61-1.81 15 .52.04.03.21.36 0 .48q-3.61-2.02-15-1zM4.45 11.95c5.19-.74 11.61-1.81 15 .52.04.03.21.36 0 .48q-3.61-2.02-15-1zM4.45 15.85c5.19-.74 11.61-1.81 15 .52.04.03.21.36 0 .48q-3.61-2.02-15-1z" vector-effect="non-scaling-stroke"></path></g></svg></label><nav><a href="#obchody">Obchody</a> <a href="#polonia">Jak świętowała Polonia?</a> <a href="#historia">Trochę historii</a> <a href="#inne-kraje">Niepodległość w innych krajach</a></nav></header><section id="home"><img src="images/layered/img0-full.png" alt="" class="hero-placeholder" srcset="images/layered/img0-full.png 2x, images/layered/img0-full-2560px.png 1.5x, images/layered/img0-full-1920px.png, images/layered/img0-full-720px.png 0.5x"><noscript class="image-lazyload"><div class="hero-image l3"></div><div class="hero-image l2"></div><div class="hero-image l1"></div></noscript><div class="text-container"><div class="overview card"><h2><span class="small accent">11 listopada</span><br><span>Święto Niepodległości</span></h2><p>Po 123 latach zaborów, 11 listopada 1918 roku Polska odzyskała niepodległość. Tego dnia, kapitulacja Niemiec zakończyła I Wojnę Światową a Rada Regencyjna - organ władzy w odradzającej się Polsce - przekazał władzę nad wojskiem marszałkowi Piłsudskiemu. W 2018 roku świętowaliśmy setną rocznicę tego wydarzenia. Z tej okazji, zorganizowano wiele wydarzeń upamiętniających to co stało się sto lat temu a także wzywających do zadbania by następne 100 lat było dla Polski jeszcze lepsze.</p></div><input type="checkbox" id="home-more" class="text-toggle"> <label for="home-more" class="expand-button">Więcej &rarr;</label><div class="expandable"><div class="card"><h2><span class="small accent">11 listopada</span><br><span>Święto Niepodległości</span></h2><p>Po 123 latach zaborów, 11 listopada 1918 roku Polska odzyskała niepodległość. Tego dnia, kapitulacja Niemiec zakończyła I Wojnę Światową a Rada Regencyjna - organ władzy w odradzającej się Polsce - przekazał władzę nad wojskiem marszałkowi Piłsudskiemu. W 2018 roku świętowaliśmy setną rocznicę tego wydarzenia. Z tej okazji, zorganizowano wiele wydarzeń upamiętniających to co stało się sto lat temu a także wzywających do zadbania by następne 100 lat było dla Polski jeszcze lepsze.<br><br>Przed 11 listopada, wiele osób, włącznie z prezydentem Andrzejem Dudą, wzywało do porzucenia dzielących nas różnic i wspólnego świętowania tej wspaniałej rocznicy. I niezależnie co uważamy o rządzie i jego działaniach, powinniśmy przestać biernie narzekać i kłócić się, a zacząć działać aby nasza ojczyzna stawała się coraz lepsza.</p><div class="credits"><div class="small">Bibliografia</div><ul><li><strong>Józef Piłsudzki</strong> - <a href="http://www.cultureave.com/dziadek-jozef-pilsudski/">www.cultureave.com</a></li></ul></div></div></div></div></section><section id="obchody"><img src="images/layered/img1-full.png" alt="" class="hero-placeholder" srcset="images/layered/img1-full.png 2x, images/layered/img1-full-2560px.png 1.5x, images/layered/img1-full-1920px.png, images/layered/img1-full-720px.png 0.5x"><noscript class="image-lazyload"><div class="hero-image l3"></div><div class="hero-image l2"></div><div class="hero-image l1"></div></noscript><div class="text-container"><div class="overview card"><h2>Obchody</h2><p>Obchodzone 11 listopada Święto Niepodległości w tym roku miało szczególnie uroczysty charakter, ponieważ minęło sto lat, od kiedy Polska odzyskała swoją państwowość. Miejscem wielu ceremonialnych wydarzeń z udziałem najwyższych władz stała się Warszawa. Przygotowania do listopadowej rocznicy trwały już od wielu miesięcy. Nadzorował je specjalnie powołany Komitet Narodowych Obchodów Setnej Rocznicy Odzyskania Niepodległości.</p></div><input type="checkbox" id="obchody-more" class="text-toggle"> <label for="obchody-more" class="expand-button">Więcej &rarr;</label><div class="expandable"><div class="card"><h2>Obchody</h2><p>Obchodzone 11 listopada Święto Niepodległości w tym roku miało szczególnie uroczysty charakter, ponieważ minęło sto lat, od kiedy Polska odzyskała swoją państwowość. Miejscem wielu ceremonialnych wydarzeń z udziałem najwyższych władz stała się Warszawa. Przygotowania do listopadowej rocznicy trwały już od wielu miesięcy. Nadzorował je specjalnie powołany Komitet Narodowych Obchodów Setnej Rocznicy Odzyskania Niepodległości.<br><br>Na oficjalnych uroczystościach związanych ze Świętem Niepodległości 2018 nie pojawili się byli prezydenci, uczestniczyli w nich natomiast przewodniczący Rady Europejskiej Donald Tusk, który 11 listopada postanowił przyjechać do Warszawy zamiast na obchody setnej rocznicy zakończenia I wojny światowej w Paryżu. Bronisław Komorowski odzyskanie przez Polskę niepodległości świętował w Poznaniu. Tam też zostali zaproszeni Lech Wałęsa i Aleksander Kwaśniewski.</p><div class="credits"><div class="small">Bibliografia</div><ul><li><strong>Pałac kultury</strong> - Google Street View</li><li><strong>Pomnik Piłsudzkiego</strong> - <a href="https://pl.wikipedia.org/wiki/Pomnik_J%C3%B3zefa_Pi%C5%82sudskiego_w_Warszawie_(pl._Pi%C5%82sudskiego)">Cybularny</a></li><li><strong>Świętujący ludzie</strong> - <a href="https://pl.sputniknews.com/foto/201511111397600-Dzien-Niepodleglosci/">pl.sputniknews.com</a></li><li><strong>Text</strong> - Wiktoria Micek</li></ul></div></div></div></div></section><section id="polonia"><img src="images/layered/img2-full.png" alt="" class="hero-placeholder" srcset="images/layered/img2-full.png 2x, images/layered/img2-full-2560px.png 1.5x, images/layered/img2-full-1920px.png, images/layered/img2-full-720px.png 0.5x"><noscript class="image-lazyload"><div class="hero-image l3"></div><div class="hero-image l2"></div><div class="hero-image l1"></div></noscript><div class="text-container"><div class="overview card"><h2>Jak świętowała Polonia?</h2><p>11 listopada obchodziliśmy 100-lecie odzyskania niepodległości. Świętowali nie tylko Polacy. Budynki na całym świecie rozświetliły się na biało-czerwono. Naszą niepodległość upamiętnili w wielu krajach Europy, ale i poza nią, np. w Ameryce Południowej czy Zjednoczonych Emiratach Arabskich. Polskie flagi pojawiły się w sumie na około 30 budynkach i zabytkach na całym świecie.</p></div><input type="checkbox" id="polonia-more" class="text-toggle"> <label for="polonia-more" class="expand-button">Więcej &rarr;</label><div class="expandable"><div class="card"><h2>Jak świętowała Polonia?</h2><p>11 listopada obchodziliśmy 100-lecie odzyskania niepodległości. Świętowali nie tylko Polacy. Budynki na całym świecie rozświetliły się na biało-czerwono. Naszą niepodległość upamiętnili w wielu krajach Europy, ale i poza nią, np. w Ameryce Południowej czy Zjednoczonych Emiratach Arabskich. Polskie flagi pojawiły się w sumie na około 30 budynkach i zabytkach na całym świecie.<br><br>Na przykład w Chile. Polska flaga pojawiła się na najwyższym wieżowcu w Ameryce Południowej - Torra Costanera.<br><br>W Los Angeles w Stanach Zjednoczonych biel i czerwień pojawiła się na słynnym Młynie Diabelskim na molo w Santa Monica.<br><br>Rocznicę odzyskania niepodległości przez Polskę świętują również Izraelczycy. Tam na biało-czerwono rozświetlono ratusz w Tel Awiwie.</p><div class="credits"><div class="small">Bibliografia</div><ul><li><strong>Wieże (Kuwejt)</strong> - <a href="https://twitter.com/PLinKuwait">@PLinKuwait</a></li><li><strong>Diabelski młyn (Los Angeles)</strong> - <a href="https://twitter.com/MSZ_RP">@MSZ_RP</a></li><li><strong>Krzyż (Litwa)</strong> - <a href="https://twitter.com/PLinLithuania">@PLinLithuania</a></li><li><strong>Text</strong> - Wiktoria Micek</li></ul></div></div></div></div></section><section id="historia"><img src="images/layered/img3-full.png" alt="" class="hero-placeholder" srcset="images/layered/img3-full.png 2x, images/layered/img3-full-2560px.png 1.5x, images/layered/img3-full-1920px.png, images/layered/img3-full-720px.png 0.5x"><noscript class="image-lazyload"><div class="hero-image l3"></div><div class="hero-image l2"></div><div class="hero-image l1"></div></noscript><div class="text-container"><div class="overview card"><h2>Historia</h2><p>W 1795 roku Austro-Węgry, Prusy i Rosja dokończyly dzielić się Polskimi ziemiami i nasz kraj oficjalnie zniknął z mapy Europy. Po wielu nieudanych powstaniach, szansę na odzyskanie własnego kraju Polacy widzieli w I Wojnie Światowej, w której zaborcy stanęli po przeciwnych stronach - Rosja dołączyła do sił Ententy a Prusy i Austria były państwami centralnymi.</p></div><input type="checkbox" id="historia-more" class="text-toggle"> <label for="historia-more" class="expand-button">Więcej &rarr;</label><div class="expandable"><div class="card"><h2>Historia</h2><p>W 1795 roku Austro-Węgry, Prusy i Rosja dokończyly dzielić się Polskimi ziemiami i nasz kraj oficjalnie zniknął z mapy Europy. Po wielu nieudanych powstaniach, szansę na odzyskanie własnego kraju Polacy widzieli w I Wojnie Światowej, w której zaborcy stanęli po przeciwnych stronach - Rosja dołączyła do sił Ententy a Prusy i Austria były państwami centralnymi.<br><br>Nie można pominąć wkładu Józefa Piłsudzkiego. To on zapoczątkował Polskie Legiony przy armii austro-węgierskiej. Podczas wojny i państwa ententy, i państwa centralne obiecywały Polakom założenie wolnego państwa aby zyskać poparcie oddziałów walczących o ojczyznę. Roman Dmowski - działacz polski na emigracji zainicjował powstanie Komitetu Narodowego Polskiego, który walczył o ojczyznę na arenie politycznej. Pod koniec wojny, gdy siły zaborców zaczęły słabnąć, powstawało coraz więcej lokalnych organów władzy na terenie naszego kraju, między innymi: Rada Narodowa Śląska Cieszyńskiego, Centralny Komitet Obywatelski, Polska Komisja Likwidacyjna czy Rada Regencyjna. Kiedy 11 listopada Niemcy podpisały kapitulację, co oficjalnie uznano za zakończenie I Wojny Światowej, Rada Regencyjna przekazało władzę nad wojskiem polskim Józefowi Piłsudzkiemu. Wydarzenie to uznano za odzyskanie przez naszą ojczyznę niepodległości.<br><br><i>"Niepodobna oddać tego upojenia, tego szału radości, jaki ludność polską w tym momencie ogarnął. Po 120 latach prysły kordony. Nie ma „ich”. Wolność! Niepodległość! Zjednoczenie! Własne państwo! Na zawsze! Chaos? To nic. Będzie dobrze. Wszystko będzie, bo jesteśmy wolni od pijawek, złodziei, rabusiów, od czapki z bączkiem, będziemy sami sobą rządzili. Cztery pokolenia nadaremno na tę chwilę czekały, piąte doczekało."</i></p><div class="credits"><div class="small">Bibliografia</div><ul><li><strong>Żołnierze</strong> - <a href="http://www.lubanski.eu/i-wojna-swiatowa-polska-niepodleglosc-i-luban/">www.lubanski.eu</a></li><li><strong>Godło Polski</strong> - <a href="http://makowskimarcin.pl/polska-najwiekszy-przegrany-ii-wojny-swiatowej/">Godło Polskie</a></li><li><strong>Rząd</strong> - <a href="https://niezalezna.pl/245092-11-listopada-1918-r-koniec-i-wojny-swiatowej-w-polsce-poczatek-ery-pilsudskiego">niezalezna.pl</a></li></ul></div></div></div></div></section><section id="inne-kraje"><img src="images/layered/img4-full.png" alt="" class="hero-placeholder" srcset="images/layered/img4-full.png 2x, images/layered/img4-full-2560px.png 1.5x, images/layered/img4-full-1920px.png, images/layered/img4-full-720px.png 0.5x"><noscript class="image-lazyload"><div class="hero-image l3"></div><div class="hero-image l2"></div><div class="hero-image l1"></div></noscript><div class="text-container"><div class="overview card"><h2>Niepodległość w innych krajach</h2><p>Oprócz Polski, wiele innych krajów również walczyło o swoją niepodległość i tak jak my świętują powstanie swojego własnego, wolnego kraju.<br>Między innymi Stany Zjednoczone, które walczyły o oddzielenie się od Wielkiej Brytanii, czy nasi sąsiedzi: Ukraina, Białoruś oraz kraje powstałe po rozpadzie Jugosławii: Chorwacja, Macedonia, Czarnogóra, itd.<br>Tak jak i my, kraje te mają swoją historię oraz swoich bohaterów.</p></div><input type="checkbox" id="innekraje-more" class="text-toggle"> <label for="innekraje-more" class="expand-button">Więcej &rarr;</label><div class="expandable"><div class="card"><h2>Niepodległość w innych krajach</h2><p>Oprócz Polski, wiele innych krajów również walczyło o swoją niepodległość i tak jak my świętują powstanie swojego własnego, wolnego kraju.<br>Między innymi Stany Zjednoczone, które walczyły o oddzielenie się od Wielkiej Brytanii, czy nasi sąsiedzi: Ukraina, Białoruś oraz kraje powstałe po rozpadzie Jugosławii: Chorwacja, Macedonia, Czarnogóra, itd.<br>Tak jak i my, kraje te mają swoją historię oraz swoich bohaterów.<br><br>Kraj, który najbardziej kojarzy się nam z niepodległością (zaraz po Polsce oczywiście 😉) to Stany Zjednoczone. To co teraz stanowi jeden z najbardziej znaczących krajów świata było początkowo trzynastoma koloniami Wielkiej Brytanii. Ze względu na ogromne zróżnicowanie kulturowe mieszkańców nowego kontynentu, konflikty z indianami oraz niezadowolenie z nadzoru angielskiego parlamentu, zaczęło rozwijać się poczucie narodowości amerykańskiej. Wspólne interesy kolonistów doprowadziły w końcu do stworzenia nowego narodu i buntu przeciwko Wielkiej Brytanii.</p><div class="credits"><div class="small">Bibliografia</div><ul><li><strong>Deklaracja Niepodległości</strong> - <a href="https://commons.wikimedia.org/wiki/File:Declaration_of_Independence_(1819),_by_John_Trumbull.jpg">US Capitol</a></li></ul></div></div></div></div></section><footer><div class="column"><h2>Wykonanie:</h2><div class="author"><h3>Wiktor Olejniczak</h3><img src="images/myfrom-sign.png" srcset="images/myfrom-sign.png 2x, images/myfrom-sign-200px.png, images/myfrom-sign-100px.png 0.5x"><div class="social"><a href="https://myfrom.me" target="_blank" rel="noopened norefferer"><svg viewBox="0 0 24 24"><path d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path></svg> </a><a href="https://github.com/myfrom" target="_blank" rel="noopened norefferer"><svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"></path></svg> </a><a href="https://twitter.com/myfrom13th" target="_blank" rel="noopened norefferer"><svg viewBox="0 0 24 24"><path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"></path></svg></a></div></div></div><div class="column"><h2>Dodatkowe informacje (More info):</h2><a href="https://github.com/myfrom/polish-independence-day#purpose-and-goals">O projekcie (About project)</a> <a href="https://github.com/myfrom/polish-independence-day#credits">Bibliografia (Credits)</a></div></footer></body></html>
